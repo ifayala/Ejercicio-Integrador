@@ -5,13 +5,13 @@ public class Barco {
     private String matricula;
     private int eslora;
     private GregorianCalendar añoFabricacion;
-    private double precioFuncion;
+
 
     public Barco(String matricula, int eslora, int añoFabricacion) {
         this.matricula = matricula;
         this.eslora = eslora;
         this.añoFabricacion = new GregorianCalendar(añoFabricacion, 12, 31);
-        precioFuncion = 0.0;
+
     }
 
     public String getMatricula() {
@@ -38,18 +38,14 @@ public class Barco {
         this.añoFabricacion = new GregorianCalendar(añoFabricacion, 12, 31);
     }
 
-    public void impuestoTipoBarco(double precioAmarre) {
+    /*public void impuestoTipoBarco(double precioAmarre) {
         this.precioFuncion = this.precioFuncion + precioAmarre;
     }
-
+*/
     public double calculaPrecioFuncion() {
+        double precioFuncion=0;
         precioFuncion = eslora * 10;
         return precioFuncion;
-    }
-    public String toString() {
-        return "***** Barco ******\n" + "Matrícula: " + matricula
-                + " | Metros de eslora: " + eslora
-                + "\nAño de fabricación: " + getAñoFabricacion();
     }
 
 }

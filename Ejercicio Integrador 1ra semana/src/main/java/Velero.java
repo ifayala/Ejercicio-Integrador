@@ -16,13 +16,8 @@ public class Velero extends Barco {
     }
 
     public double calculaPrecioFuncion() {
-        return super.calculaPrecioFuncion() + numeroMastiles * 5;
+        return super.calculaPrecioFuncion() + numeroMastiles ;
     }
 
-    public String toString() {
-        return "****** Velero ******\n" + "Matrícula: " + super.getMatricula()
-                + " | Metros de eslora: " + super.getEslora()
-                + "\nAño de fabricación: " + getAñoFabricacion()
-                + " | Mastiles: " + numeroMastiles;
-    }
+
 }

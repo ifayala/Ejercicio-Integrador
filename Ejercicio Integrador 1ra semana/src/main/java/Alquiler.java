@@ -18,10 +18,11 @@ public class Alquiler {
         precioAlquiler = 0.0;
     }
 
+
     // Getters
 
-    public String getCliente() {
-        return String.valueOf(cliente);
+    public Cliente getCliente() {
+        return cliente;
     }
 
     public String getfInicio() { // Muestra la fecha formateada: DD/MM/AA
@@ -74,21 +75,13 @@ public class Alquiler {
     }
 
     // Multiplica días de ocupación
-    public double calculaPrecioAlquiler(Barco a) {
+    public double calculaPrecioAlquiler() {
+        double precio=barco.calculaPrecioFuncion();
         // Dias ocupados * Precio del amarre según el tipo de barco * valor fijo
-        precioAlquiler = diasOcupados() * a.calculaPrecioFuncion() + 2;
+        precioAlquiler = diasOcupados() * barco.calculaPrecioFuncion() * 2;
         return precioAlquiler;
     }
 
 
-
-    public String toString() {
-        return "***** Alquiler ******" + "\nNombre: " + cliente.getNombre()
-                + " | DNI: " + cliente.getDni()
-                + "\nFecha de inicio: " + getfInicio()
-                + " | Fecha de fin: " + getfFin()
-                + "\nPosicion de amarre: " + posicionAmarre
-                + " | Barco: " + barco.getMatricula();
-    }
 
 }

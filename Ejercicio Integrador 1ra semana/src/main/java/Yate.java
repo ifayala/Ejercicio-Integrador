@@ -16,14 +16,9 @@ public class Yate extends Deportivo {
     }
 
     public double calculaPrecioFuncion() {
-        return super.calculaPrecioFuncion() + camarotes * 20;
+        double precioYate=super.calculaPrecioFuncion()+camarotes;
+        return precioYate;
     }
 
-    public String toString() {
-        return "***** Yate de lujo *****\n" + "Matrícula: " + super.getMatricula()
-                + " | Metros de eslora: " + super.getEslora()
-                + "\nAño de fabricación: " + getAñoFabricacion()
-                + " | Potencia: " + super.getPotencia() + "CV"
-                + " | Camarotes: " + camarotes;
-    }
+
 }

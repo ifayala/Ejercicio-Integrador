@@ -16,14 +16,8 @@ public class Deportivo extends Barco {
     }
 
     public double calculaPrecioFuncion() {
-        return super.calculaPrecioFuncion() + potencia * 1;
+        return super.calculaPrecioFuncion() + potencia;
     }
 
-    public String toString() {
-        return "***** Deportivo a motor *****\n"
-                + "Matrícula: " + super.getMatricula()
-                + " | Metros de eslora: " + super.getEslora()
-                + "\nAño de fabricación: " + getAñoFabricacion()
-                + " | Potencia: " + potencia + "CV";
-    }
+
 }

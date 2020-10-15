@@ -4,9 +4,9 @@ public class Main {
     public static void main(String[] args) {
 
         double mayorAlq =0;
-        int iMayor=0;
+        Alquiler alqMayor=null;
         double menorAlq =99999.0;
-        int iMenor=0;
+        Alquiler alqMenor=null;
         double sumaAlq=0;
         double sumaAnual=0;
 
@@ -20,41 +20,35 @@ public class Main {
 
         Alquiler alquilerPepe = new Alquiler(pepe, 23, 5, 2020, 29, 5, 2020, 23, rayoMcQuin);
         Alquiler alquilerCarlos = new Alquiler(carlos, 01, 5, 2020, 29, 5, 2020, 22, velerito);
-        Alquiler alquilerJuan = new Alquiler(juan, 10, 5, 2020, 29, 5, 2020, 21, velerito);
+        Alquiler alquilerJuan = new Alquiler(juan, 10, 5, 2020, 29, 5, 2020, 21, yatecito);
 
-        ArrayList<Double> alquiler = new ArrayList<Double>();
-        alquiler.add(alquilerPepe.calculaPrecioAlquiler(alquilerPepe.getBarco()));
-        alquiler.add(alquilerCarlos.calculaPrecioAlquiler(alquilerCarlos.getBarco()));
-        alquiler.add(alquilerJuan.calculaPrecioAlquiler(alquilerJuan.getBarco()));
+        ArrayList<Alquiler> alquiler = new ArrayList<Alquiler>();
+        alquiler.add(alquilerPepe);
+        alquiler.add(alquilerCarlos);
+        alquiler.add(alquilerJuan);
 
-        ArrayList<String> alquilerNomb = new ArrayList<String>();
-        alquilerNomb.add(pepe.getNombre());
-        alquilerNomb.add(carlos.getNombre());
-        alquilerNomb.add(juan.getNombre());
 
-        for(int i = 0; i < alquiler.size(); i++) {
-            sumaAlq += alquiler.get(i);
-            if(alquiler.get(i)>mayorAlq) {
-                mayorAlq = alquiler.get(i);
-                iMayor = i;
-            }
-            System.out.print(alquiler.get(i)+"|"+alquilerNomb.get(i)+"\n");
-        }
-        for(int i = 0; i < alquilerNomb.size(); i++) {
-            if(alquiler.get(i)<menorAlq) {
-                menorAlq=alquiler.get(i);
-                iMenor = i;
-            }
-
+        for (Alquiler alq:alquiler
+        ) {
+            double precioalq = alq.calculaPrecioAlquiler();
+            if (alqMayor==null)
+                alqMayor = alq;
+            if (alqMenor==null)
+                alqMenor = alq;
+            if (precioalq > alqMayor.calculaPrecioAlquiler())
+                alqMayor = alq;
+            if (precioalq < alqMenor.calculaPrecioAlquiler())
+                alqMenor= alq;
+            sumaAlq += precioalq;
         }
 
         sumaAnual += sumaAlq;
 
         System.out.println("\n----------------------------------------------");
 
-        System.out.printf("Alquiler menor Precio:\n"+alquiler.get(iMenor)+"|"+alquilerNomb.get(iMenor)+"\n");
+        System.out.printf("Alquiler menor Precio:\n"+alqMenor.calculaPrecioAlquiler()+"|"+alqMenor.getCliente().getNombre()+"\n");
 
-        System.out.printf("Alquiler mayor Precio:\n"+alquiler.get(iMayor)+"|"+alquilerNomb.get(iMayor)+"\n");
+        System.out.printf("Alquiler mayor Precio:\n"+alqMayor.calculaPrecioAlquiler()+"|"+alqMayor.getCliente().getNombre()+"\n");
 
         System.out.printf("Promedio alquileres:\n"+sumaAlq/alquiler.size()+"\n");
 
