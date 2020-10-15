@@ -2,8 +2,8 @@ public class Velero extends Barco {
 
     private int numeroMastiles;
 
-    public Velero(int numeroMastiles, String matricula, int eslora, int añoFabricacion) {
-        super(matricula, eslora, añoFabricacion);
+    public Velero(int numeroMastiles, String matricula, int eslora, int anioFabricacion) {
+        super(matricula, eslora, anioFabricacion);
         this.numeroMastiles = numeroMastiles;
     }
 

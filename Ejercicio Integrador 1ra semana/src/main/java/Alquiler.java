@@ -70,8 +70,7 @@ public class Alquiler {
     // Calcula la diferencia en dias entre dos fechas
     private long diasOcupados() {
         long aux = fFin.getTimeInMillis() - fInicio.getTimeInMillis();
-        long dias = aux / (1000 * 60 * 60 * 24);
-        return dias;
+        return aux / (1000 * 60 * 60 * 24);
     }
 
     // Multiplica días de ocupación
